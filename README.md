@@ -1,1 +1,1 @@
-### npm server.js in terminal to start the server
+### `npm run dev` in terminal to start the server locally
