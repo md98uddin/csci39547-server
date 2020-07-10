@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 // Database
-const db = require('./config/database');
+const db = require('./database/database');
 
 // Test database
 db.authenticate()
@@ -14,6 +14,9 @@ db.authenticate()
 const app = express();
 
 app.get('/', (req, res) => res.send('INDEX'));
+
+// Routes
+app.use('/campus', require('./routes/campus.controller'));
 
 const PORT = process.env.PORT || 5000;
 

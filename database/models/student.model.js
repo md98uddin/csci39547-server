@@ -1,10 +1,9 @@
-const Sequilize = require('sequelize');
-const db = require('..configure/database');
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
+const db = require('../database');
 
 const Student = db.define('Students', {
     first_name: {
-        type: Sequilize.STRING,
+        type: Sequelize.STRING,
         allowNull: false
     },
     last_name: {
@@ -19,7 +18,7 @@ const Student = db.define('Students', {
         }
     },
     gpa: {
-        type : Sequelize.DECIMAL,
+        type: Sequelize.DECIMAL,
         validate: {
             min: 0.0,
             max: 4.0
@@ -31,3 +30,4 @@ const Student = db.define('Students', {
     }
 })
 
+module.exports = Student;

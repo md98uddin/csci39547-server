@@ -1,10 +1,9 @@
-const Sequilize = require('sequelize');
-const db = require('..configure/database');
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
+const db = require('../database');
 
 const Campus = db.define('Campuses', {
     college_name: {
-        type: Sequilize.STRING,
+        type: Sequelize.STRING,
         allowNull: false
     },
     college_address: {
@@ -19,9 +18,6 @@ const Campus = db.define('Campuses', {
         type:Sequelize.STRING,
         allowNull: false
     },
-    college_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    }
 })
 
+module.exports = Campus;
