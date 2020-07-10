@@ -18,10 +18,6 @@ const Campus = db.define('Campuses', {
         type:Sequelize.STRING,
         allowNull: false
     },
-    college_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    }
 })
 
 module.exports = Campus;
