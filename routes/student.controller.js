@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {Campus, Student} = require('../database/models'); // This has both, student and campus models
+const Student = require('../database/models').Students; // This has both, student and campus models
 
-// Get gig list
+// Testing if database can be accessed properly
 router.get('/', (req, res) => 
   Student.findAll()
   .then(student => {

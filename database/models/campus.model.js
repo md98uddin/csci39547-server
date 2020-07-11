@@ -1,3 +1,5 @@
+// Model for campus
+
 const Sequelize = require('sequelize');
 const db = require('../database');
 
