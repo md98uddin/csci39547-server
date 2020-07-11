@@ -11,4 +11,22 @@ router.get('/', (req, res) =>
   })
   .catch(err => console.log(err)));
 
+  //route to serve up all campuses
+router.get('/', (req,res,next) =>  {
+    Campus.findAll()
+    .then(campusRes => res.send(campusRes))
+    .catch(next)
+ })
+
+//route to remove a campus based on its ID
+router.delete('/:id', (req,res,next) => {
+  Campus.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+  .then(campusDel => res.sendStatus(200))
+  .catch(next)
+})
+
 module.exports = router;
