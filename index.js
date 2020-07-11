@@ -17,6 +17,7 @@ app.get('/', (req, res) => res.send('INDEX'));
 
 // Routes
 app.use('/campus', require('./routes/campus.controller'));
+app.use('/students', require('./routes/student.controller'));
 
 const PORT = process.env.PORT || 5000;
 

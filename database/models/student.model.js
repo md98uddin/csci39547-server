@@ -1,3 +1,5 @@
+// Model for students
+
 const Sequelize = require('sequelize');
 const db = require('../database');
 
@@ -24,7 +26,7 @@ const Student = db.define('Students', {
             max: 4.0
         }
     },
-    college_id: {
+    CampusId: {
         type: Sequelize.INTEGER,
         allowNull: false
     }

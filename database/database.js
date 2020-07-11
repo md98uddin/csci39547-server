@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 var DATABASE_NAME = "Site_DB";
 var USERNAME = "postgres";
 var PASSWORD = "postgres";
+
 module.exports = new Sequelize(DATABASE_NAME, USERNAME, PASSWORD, {
     host: 'localhost',
     dialect: 'postgres',
