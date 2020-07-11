@@ -1,18 +1,17 @@
-const Sequelize = require('sequelize');
+// Here, we can instantiate our database and use Sequelize as well;
 
-// Change the three variables to suit your database
-var DATABASE_NAME = "Site_DB";
-var USERNAME = "postgres";
-var PASSWORD = "postgres";
+// Module dependencies;
+const Sequelize = require("sequelize");
+const databaseName = require("../utilities/databaseName");
 
-module.exports = new Sequelize(DATABASE_NAME, USERNAME, PASSWORD, {
-    host: 'localhost',
-    dialect: 'postgres',
+// Confirmation message (limit these in production);
+console.log("Opening database connection");
 
-    pool: {
-        max:5,
-        min:0,
-        aquire: 30000,
-        idle: 10000
-    },
-});
+// This is our entry point, we instantiate the Sequelize instance accordingly;
+const db = new Sequelize(
+  process.env.DATABASE_URL || `postgres://postgres:${process.env.LOCAL_DATABASE_PASSWORD}@localhost/${databaseName}`,
+  { logging: false }
+);
+
+// Export our instance of Sequelize, which will be modified with models;
+module.exports = db;
