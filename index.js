@@ -54,7 +54,7 @@ const configureApp = () => {
   app.use(cookieParser());
 
   // Routes
-  app.use('/campus', require('./routes/campus.controller'));
+  app.use('/campuses', require('./routes/campus.controller'));
   app.use('/students', require('./routes/student.controller'));
 
   // Error handling;
