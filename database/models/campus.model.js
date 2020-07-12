@@ -26,6 +26,7 @@ const Campus = db.define('Campuses', {
 
     image_url: {
         type: Sequelize.STRING,
+        defaultValue: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
         allowNull: false,
     },
 
