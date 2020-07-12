@@ -30,7 +30,7 @@ router.get("/:id", async (req, res, next) => {
 
 //route to remove a campus based on its ID
 // campuses/id
-router.delete('/:id', (req,res,next) => {
+router.delete('/remove/:id', (req,res,next) => {
   Campus.destroy({
       where: {
           id: req.params.id
@@ -42,7 +42,7 @@ router.delete('/:id', (req,res,next) => {
 
 // Route to handle adding a campus
 // /campuses/
-router.post("/", async (req, res, next) => {
+router.post("/add", async (req, res, next) => {
   // Take the form data from the request body
   const { name, address, description, image_url } = req.body;
   // Create a campus object
@@ -63,7 +63,7 @@ router.post("/", async (req, res, next) => {
 
 // Route to handle editing a campus
 // /campuses/id
-router.put("/:id", async (req, res, next) => {
+router.put("/edit/:id", async (req, res, next) => {
   // get the id from request params
   const { id } = req.params;
   // get form data from the request body
