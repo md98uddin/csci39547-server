@@ -33,7 +33,7 @@ router.get("/:id", async (req, res, next) => {
 
 //route to remove a student based on their ID
 // students/id
-router.delete('/:id', (req,res,next) => {
+router.delete('/remove/:id', (req,res,next) => {
   Student.destroy({
       where: {
           id: req.params.id
@@ -45,7 +45,7 @@ router.delete('/:id', (req,res,next) => {
 
 // Route to handle adding a student
 // /students/
-router.post("/", async (req, res, next) => {
+router.post("/add", async (req, res, next) => {
   // Take the form data from the request body
   const { first_name, last_name, email, gpa, CampusId } = req.body;
   // Create a student object
@@ -67,7 +67,7 @@ router.post("/", async (req, res, next) => {
 
 // Route to handle editing a student
 // /students/id
-router.put("/:id", async (req, res, next) => {
+router.put("/edit/:id", async (req, res, next) => {
   const { id } = req.params;
   
   const { first_name, last_name, email, gpa, CampusId } = req.body;
