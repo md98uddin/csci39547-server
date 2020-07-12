@@ -6,19 +6,19 @@ const db = require('../database');
 const Campus = db.define('Campuses', {
 
     id: {
-        type: Sequelize.INTEGER(11),
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
     },
 
-    college_name: {
+    campus_name: {
         type: Sequelize.STRING,
         allowNull: false,
         notEmpty: true, //do not allow empty strings
     },
 
-    college_address: {
+    campus_address: {
         type: Sequelize.STRING,
         notEmpty: true, //do not allow empty strings
         allowNull: false,
@@ -26,8 +26,6 @@ const Campus = db.define('Campuses', {
 
     image_url: {
         type: Sequelize.STRING,
-        //default value of the image, a basic user profile picture 
-        defaultValue: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
         allowNull: false,
     },
 
