@@ -13,14 +13,14 @@ Run `npm run dev` in terminal to start the server
 ### Campuses
 * `GET localhost:5000/campuses` - Returns list of campuses
 * `GET localhost:5000/campuses/id` - Returns a specific campus by id number
-* `DELETE localhost:5000/campuses/id` - Deletes a campus by id number
-* `POST localhost:5000/campuses` - Adds a campus
-* `PUT localhost:5000/campuses/id` - Edits a campus by id
+* `DELETE localhost:5000/campuses/remove/id` - Deletes a campus by id number
+* `POST localhost:5000/campuses/add` - Adds a campus
+* `PUT localhost:5000/campuses/edit/id` - Edits a campus by id
 
 ### Students
 * `GET localhost:5000/students` - Returns list of students
 * `GET localhost:5000/students/id` - Returns a specific student by id number
-* `DELETE localhost:5000/students/id` - Deletes a student by id number
-* `POST localhost:5000/students` - Adds a student
-* `PUT localhost:5000/students/id` - Edits a student by id
+* `DELETE localhost:5000/students/remove/id` - Deletes a student by id number
+* `POST localhost:5000/students/add` - Adds a student
+* `PUT localhost:5000/students/edit/id` - Edits a student by id
 
