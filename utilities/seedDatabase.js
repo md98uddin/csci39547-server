@@ -36,6 +36,7 @@ const studentList = [
     email: "pirateking@931.com",
     gpa: "2.0",
     CampusId: "2",
+    image_url: "https://homepages.cae.wisc.edu/~ece533/images/cat.png",
   },
   {
     first_name: "Giannis",
