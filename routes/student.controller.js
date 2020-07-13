@@ -47,7 +47,7 @@ router.delete('/remove/:id', (req,res,next) => {
 // /students/
 router.post("/add", async (req, res, next) => {
   // Take the form data from the request body
-  const { first_name, last_name, email, gpa, CampusId } = req.body;
+  const { first_name, last_name, email, gpa, CampusId, image_url } = req.body;
   // Create a student object
   const studentObj = {
     first_name: first_name,
@@ -55,6 +55,7 @@ router.post("/add", async (req, res, next) => {
     email: email,
     gpa: gpa,
     CampusId: CampusId,
+    image_url: image_url,
   };
   try {
     // Create a new student on the database
@@ -70,13 +71,14 @@ router.post("/add", async (req, res, next) => {
 router.put("/edit/:id", async (req, res, next) => {
   const { id } = req.params;
   
-  const { first_name, last_name, email, gpa, CampusId } = req.body;
+  const { first_name, last_name, email, gpa, CampusId, image_url } = req.body;
   const updatedObj = {
     first_name: first_name,
     last_name: last_name,
     email: email,
     gpa: gpa,
     CampusId: CampusId,
+    image_url: image_url,
   };
   try {
     // Find a student with a matching id from the database
