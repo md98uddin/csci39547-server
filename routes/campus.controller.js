@@ -9,7 +9,11 @@ const Campus = require('../database/models').Campus;
   //route to serve up all campuses
   // campuses
 router.get('/', async (req,res,next) =>  {
-    Campus.findAll()
+    Campus.findAll({
+      order: [
+        ['id', 'ASC'],
+      ]
+    })
     .then(campusRes => res.send(campusRes))
     .catch(next)
  })
