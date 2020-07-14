@@ -23,4 +23,7 @@ Run `npm run dev` in terminal to start the server
 * `DELETE localhost:5000/students/remove/id` - Deletes a student by id number
 * `POST localhost:5000/students/add` - Adds a student
 * `PUT localhost:5000/students/edit/id` - Edits a student by id
+* ##### New
+  * `GET localhost:5000/students/find/CampusId` - Returns list of students attending a specific campus
+  * `PUT localhost:5000/students/assign/id` - Edits a student's campus (campusId as a body req)
 
