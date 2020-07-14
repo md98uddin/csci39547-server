@@ -10,7 +10,28 @@ const Student = require('../database/models').Students;
 //route to serve up all students
 // students/
 router.get('/', async (req,res,next) => {
-  Student.findAll()
+  Student.findAll({
+    order: [
+      ['id', 'ASC'],
+    ]
+  })
+  .then(
+    studentRes => res.send(studentRes))
+  .catch(next)
+})
+
+//route to serve up all students
+// students/find/CampusId
+router.get('/find/:CampusId', async (req,res,next) => {
+  const { CampusId } = req.params;
+  Student.findAll({
+    where: {
+      CampusId: [CampusId]
+  },
+  order: [
+    ['id', 'ASC'],
+  ]
+  })
   .then(
     studentRes => res.send(studentRes))
   .catch(next)
@@ -32,7 +53,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 //route to remove a student based on their ID
-// students/id
+// students/remove/id
 router.delete('/remove/:id', (req,res,next) => {
   Student.destroy({
       where: {
@@ -44,7 +65,7 @@ router.delete('/remove/:id', (req,res,next) => {
 })
 
 // Route to handle adding a student
-// /students/
+// /students/add
 router.post("/add", async (req, res, next) => {
   // Take the form data from the request body
   const { first_name, last_name, email, gpa, CampusId, image_url } = req.body;
@@ -67,7 +88,7 @@ router.post("/add", async (req, res, next) => {
 });
 
 // Route to handle editing a student
-// /students/id
+// /students/edit/id
 router.put("/edit/:id", async (req, res, next) => {
   const { id } = req.params;
   
@@ -79,6 +100,32 @@ router.put("/edit/:id", async (req, res, next) => {
     gpa: gpa,
     CampusId: CampusId,
     image_url: image_url,
+  };
+  try {
+    // Find a student with a matching id from the database
+    const student = await Student.findByPk(id);
+    // database would return a valid student object or an error
+    console.log(updatedObj);
+    // modify the student object with new form data
+    await student.set(updatedObj);
+    // save the new student object to the data
+    // database would return a new student object
+    const updatedStudent = await student.save();
+    console.log(updatedStudent);
+    res.status(201).send(updatedStudent);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Route to assign a student to a campus
+// /students/assign/id
+router.put("/assign/:id", async (req, res, next) => {
+  const { id } = req.params;
+  
+  const { CampusId } = req.body;
+  const updatedObj = {
+    CampusId: "2",
   };
   try {
     // Find a student with a matching id from the database
