@@ -125,7 +125,7 @@ router.put("/assign/:id", async (req, res, next) => {
   
   const { CampusId } = req.body;
   const updatedObj = {
-    CampusId: "2",
+    CampusId: CampusId,
   };
   try {
     // Find a student with a matching id from the database
